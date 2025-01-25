@@ -6,6 +6,9 @@ import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.DocumentFilter;
 import java.awt.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -88,7 +91,12 @@ public class assignmentTracker extends JFrame {
         // Submit Button
         JButton submitButton = new JButton("Track Assignment");
         submitButton.addActionListener(_ -> {
-            // Handle button click
+
+            String assignmentName = assignmentNameField.getText();
+            String courseCode = courseCodeField.getText();
+            String dueDate = dateField.getText();
+
+            writeToFile(assignmentName, courseCode, dueDate);
         });
         assignmentPanel.add(submitButton);
 
@@ -97,17 +105,18 @@ public class assignmentTracker extends JFrame {
 
 
     private static JPanel getReminderPanel() {
-        JPanel assignmentPanel = new JPanel(new FlowLayout());
-        JButton submitButton = new JButton("Track Assignment");
+        JPanel reminderPanel = new JPanel(new FlowLayout());
 
+        return reminderPanel;
 
-        submitButton.addActionListener(_ -> {
-
-        });
-
-        assignmentPanel.add(submitButton);
-        return assignmentPanel;
-
+    }
+    public static void writeToFile(String assignmentName, String courseCode, String dueDate) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("src/main/java/app/assignments.txt", true))) {
+            writer.write(assignmentName + "," + courseCode + "," + dueDate);
+            writer.newLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static String date() { // get current date
