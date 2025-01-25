@@ -1,8 +1,11 @@
 This program is meant to remind me of assignments and when they are due
 
-It takes in the name of the class, the assignment and the due date
+It's set up in the windows task scheduler to run every day at certain times, and passes an argument, -scheduled
+to tell the program to remind me of assignments rather than except new ones
 
-It's set up in the windows task scheduler to run every day at 8:30am, noon, 4pm, and 8pm
+every time it is run by the scheduler it will pop up in the corner of my screen displaying what i have due and when it's due
+it priortizing whatever assignment is closest to being due.
 
-every time it runs it'll pop up in the corner of my screen displaying what i have due and when it's due
-it priortizing whatevery assignment is closest to being due.
+if it is ran by me it will have a pop-up with 3 text boses for the, the assignment course code, and the due date and it saves all the info a text file
+
+
