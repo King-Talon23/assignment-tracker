@@ -1,4 +1,4 @@
-This program is meant to remind me off assignments and when they are due
+This program is meant to remind me of assignments and when they are due
 
 It takes in the name of the class, the assignment and the due date
 
